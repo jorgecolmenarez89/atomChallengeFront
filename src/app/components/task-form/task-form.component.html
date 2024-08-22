@@ -1,0 +1,51 @@
+  
+ <div class="form-task">
+
+  @if(data.todo) {
+    <h3>Editar tarea</h3>
+  } 
+  @else {
+    <h3>Nueva tarea</h3>
+  }
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Título</mat-label>
+      <input  
+        type="text" 
+        matInput 
+        formControlName="title"
+        placeholder="some title"
+      >
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Descripción</mat-label>
+      <textarea 
+        matInput
+        formControlName="description" 
+        placeholder="some description"
+      >
+      </textarea>
+    </mat-form-field>
+
+    <button 
+      type="submit" 
+      mat-raised-button color="primary"
+      [disabled]="!userForm.valid"
+    >
+      @if(loading) {
+        <mat-spinner diameter="20"></mat-spinner>
+        <!--mat-progress-spinner
+          class="example-margin"
+          [color]="color"
+          [mode]="mode"
+          [value]="value">
+      </mat-progress-spinner-->
+      }
+      @else {
+        Guardar
+      }
+    </button>
+  </form>
+</div> 

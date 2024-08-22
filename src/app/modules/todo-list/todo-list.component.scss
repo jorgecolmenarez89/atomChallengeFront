@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content-spacer{
+  margin-top: 70px;
+}
+
+
+.navigation {
+  height: 70px;
+  background-color: #ff6600;
+  color: white;
+  display: flex;
+  width: 100%;
+}
+
+.nav-spacer {
+  flex: 1 1 auto;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}

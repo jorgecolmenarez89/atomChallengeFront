@@ -1,0 +1,58 @@
+<div class="auth-wrapper">
+  <div class="form-auth">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <div class="center-content full-width spacer flex-col">
+          
+          <mat-card-title
+            class="auth-title"
+          >
+            Login Atom Challenge
+          </mat-card-title>
+          <img 
+            src="https://atomchat.io/wp-content/uploads/2023/03/logo-atom-chat.png" 
+            alt="Logo" 
+            class="logo"
+          >
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        
+        <form class="example-form"  (ngSubmit)="onSubmit()" >
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input  
+              type="email" 
+              matInput 
+              [formControl]="emailFormControl" 
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            >
+          </mat-form-field>
+
+          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>Correo electrónico invalido</mat-error>
+          }
+          @if (emailFormControl.hasError('required')) {
+            <mat-error>El campo correo electrónico es <strong>requirido</strong></mat-error>
+          }
+
+          <div class="spacer">
+            <mat-divider></mat-divider>
+          </div>
+          <div class="center-content full-width spacer">
+            <button 
+              mat-raised-button color="primary"
+              [disabled]="!emailFormControl.valid"
+              type="submit"
+            >
+              Ingresar
+            </button>
+          </div>
+        </form>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

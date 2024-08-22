@@ -1,0 +1,17 @@
+.dialog-register{
+  padding: 20px;
+
+  .dialog-register-title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: "Inter", sans-serif;
+  }
+
+  .dialog-actions-content{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+}

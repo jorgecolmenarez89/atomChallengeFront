@@ -1,0 +1,35 @@
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .form-auth{
+    width: 500px;
+    
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: 0 24px;
+    }
+
+  }
+
+  .spacer{
+    margin: 15px 0;
+  }
+
+  .logo{
+    width: 200px;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  .auth-title{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+}
+
+
