@@ -31,21 +31,23 @@ export class AuthComponent {
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   matcher = new MyErrorStateMatcher();
-  //readonly dialog = inject(MatDialog);
+  loading = false;
 
   constructor(public dialog: MatDialog, private authService: AuthService, private router: Router) { }
 
   onSubmit(){
     if (this.emailFormControl.value !== null && this.emailFormControl.value !== undefined) {
+      this.loading = true;
       this.authService.login(this.emailFormControl.value).subscribe(
         (response) => {
           localStorage.setItem('email', this.emailFormControl.value ?? '');
-          console.log('response', response);
+          this.loading = false;
           this.router.navigate(['/todo']);
         },
         (error) => {
           console.log('error', error);
           if (error.status === 404) {
+            this.loading = false;
             this.openDialogRegister();
           }
         }

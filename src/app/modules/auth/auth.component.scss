@@ -32,4 +32,24 @@
 
 }
 
+.mat-spinner {
+  ::ng-deep circle {
+      stroke: #33dd82 !important;
+  }
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #b68200;
+
+}
+
+.uploader-status{
+  ::ng-deep 
+  .mat-progress-spinner,
+  .mat-spinner {
+      circle {
+          stroke: white;
+      }
+  }
+}
 

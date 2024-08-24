@@ -30,12 +30,12 @@
               placeholder="Ex. pat@example.com"
             >
           </mat-form-field>
-
-          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+          @if(emailFormControl.touched && emailFormControl.hasError('email')) {
             <mat-error>Correo electrónico invalido</mat-error>
           }
-          @if (emailFormControl.hasError('required')) {
-            <mat-error>El campo correo electrónico es <strong>requirido</strong></mat-error>
+
+          @if(emailFormControl.touched && emailFormControl.hasError('required')) {
+            <mat-error><mat-error>El campo correo electrónico es <strong>requerido</strong></mat-error></mat-error>
           }
 
           <div class="spacer">
@@ -43,11 +43,21 @@
           </div>
           <div class="center-content full-width spacer">
             <button 
-              mat-raised-button color="primary"
+              mat-raised-button [color]="loading ? 'ascent' : 'primary'"
               [disabled]="!emailFormControl.valid"
               type="submit"
+              class="uploader-status"
             >
-              Ingresar
+              @if(loading) {
+                <mat-spinner 
+                  diameter="30" 
+                  strokeWidth="3"
+                  mode="indeterminate"
+                ></mat-spinner>
+              }
+              @else {
+                Ingresar
+              }
             </button>
           </div>
         </form>
